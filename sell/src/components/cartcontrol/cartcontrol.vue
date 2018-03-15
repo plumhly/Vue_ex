@@ -1,16 +1,16 @@
 <template>
     <div class="cartcontrol">
       <transition name="move">
-        <div class="cart-decrease icon-remove_circle_outline" v-show="food.count > 0" @click="decreaseCart"></div>
+        <div class="cart-decrease icon-remove_circle_outline" v-show="food.count > 0" @click.stop.prevent="decreaseCart"></div>
       </transition>
       <div class="cart-count" v-show="food.count > 0">{{this.food.count}}</div>
-      <div class="cart-add icon-add_circle" @click="addCart($event)"></div>
+      <div class="cart-add icon-add_circle" @click.stop.prevent="addCart($event)"></div>
     </div>
 </template>
 
 <script>
   import Vue from 'vue';
-  import bus from '../../common/bus';
+  import bus from '../../common/js/bus';
   export default {
       name: 'cartcontrol',
       props: {
